@@ -20,7 +20,7 @@ module.exports = {
     module: {
 
         // 忽略对已知文件解析，提高编译速度
-        noParse: ['react', 'react-dom', 'jquery'],
+        //noParse: ['react', 'react-dom', 'jquery'],
         loaders: [
             {
                 test: /\.jsx?$/,
@@ -64,7 +64,7 @@ module.exports = {
                 minifyJS: true,
                 removeComments: true
             },
-            chunks: ['lib', name]
+            chunks: ['lib']
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
