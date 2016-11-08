@@ -8,7 +8,7 @@ const dirname = __dirname.replace( /\\/g, '/' );
 module.exports = {
     entry: {
         lib: ['react', 'react-dom', 'jquery'],
-        index: './app/src/index.js'
+        index: './app/src/app.js'
     },
     output: {
         path: './app/dist',
@@ -58,7 +58,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: `./index.html`,
-            template: `./app/src/index.html`,
+            template: `./app/src/app.html`,
             minify: {
                 minifyCSS: true,
                 minifyJS: true,
