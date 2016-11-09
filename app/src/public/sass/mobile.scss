@@ -76,14 +76,14 @@
     }
 
     #page-index{
-        >.com-header{
+        .com-header{
             background-color: transparent;
         }
-        >.com-footer{
+        .com-footer{
             padding-right: 0;
             text-align: center;
         }
-        >.profile{
+        .profile{
             >.title{
                 font-size: rem(30);
             }
@@ -119,7 +119,7 @@
     }
 
     #page-download{
-        >.com-body{
+        .com-body{
             h3{
                 font-size: rem(14);
             }

@@ -8,7 +8,7 @@ const dirname = __dirname.replace( /\\/g, '/' );
 module.exports = {
     entry: {
         lib: ['react', 'react-dom', 'jquery'],
-        index: './app/src/app.js'
+        app: './app/src/app.js'
     },
     output: {
         path: './app/dist',
@@ -35,6 +35,10 @@ module.exports = {
                 // https://github.com/webpack/extract-text-webpack-plugin
                 //loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss!less')
                 loader: 'style!css!postcss!less'
+            },
+            {
+                test: /\.scss/,
+                loader: 'style!css!postcss!sass'
             },
             {
                 test: /\.jpe?g$|\.gif$|\.png$|\.ico$|\.svg$|\.woff$|\.ttf$|\.eot$/,
@@ -64,7 +68,7 @@ module.exports = {
                 minifyJS: true,
                 removeComments: true
             },
-            chunks: ['lib']
+            chunks: ['lib', 'app']
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
@@ -76,7 +80,9 @@ module.exports = {
     resolve: {
         root: dirname,
         extensions: [ '', '.js', '.jsx', '.json', '.scss', '.less', '.css' ],
-        alias: {}
+        alias: {
+            pjs: 'production/particleground.all'
+        }
     },
     devServer: {
         contentBase: `${ dirname }/app/dist`,

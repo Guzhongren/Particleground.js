@@ -5,7 +5,10 @@
     },
     "parserOptions": {
         "ecmaVersion": 7,
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
 
     // http://eslint.cn/docs/rules/

@@ -228,7 +228,7 @@ $page-left-right: rem(120);
     }
     &.snow{
         height: rem(550);
-        background: url("../img/merry-christmas.jpg") 0 0 no-repeat;
+        background: url("../img/merry_christmas.jpg") 0 0 no-repeat;
         background-size: 100% 100%;
     }
     >.demo{
@@ -335,24 +335,28 @@ $page-left-right: rem(120);
 
 // index page
 #page-index {
-    >.bg{
-        position: absolute;
-        width: 100%;
-        height: 100%;
+    .bg{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
     }
-    >.profile{
+    .profile{
         width: 100%;
         text-align: center;
         color: $green;
         position: absolute;
-        top: 48%;
+        z-index: 2;
+        top: 32%;
         > .title {
-            font-size: 6.6rem;
+            font-size: 80px;
             font-weight: 100;
         }
         > .describe {
             font-size: rem(21);
-            margin-top: .8em;
+            margin-top: 10px;
             color: #008850;
             > .readmore {
                 display: inline-block;
@@ -360,7 +364,7 @@ $page-left-right: rem(120);
                 text-decoration: none;
                 font-size: 65%;
                 color: $green;
-                transform: translateY(rem(-3));
+                transform: translateY(-3px);
             }
         }
         >.usage {
