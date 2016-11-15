@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import './public/sass/build.scss';
 
 const rootRoutes = {
@@ -31,9 +31,21 @@ const rootRoutes = {
             {
                 path: 'examples/:instance',
                 getComponent(ns, cb) {
+                    console.log(':inst', ns)
                     require.ensure([], () => {
                         cb(null, require('./routes/examples'));
                     }, 'examples');
+                },
+                getChildRoutes(partialNextState, cb) {
+                    console.log('000:', partialNextState);
+                    let instance = partialNextState.params.instance;
+                    console.log('instance', instance)
+                    require.ensure([], () => {
+                        cb(null, [
+                            //require(`./components/examples/${instance}`)
+                            require(`./components/examples/intro`)
+                        ]);
+                    }, 'intro');
                 }
             },
             {

@@ -1,34 +1,16 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from 'react-router';
 import $ from 'jquery';
-import throttle from '../common/throttle';
+import examplesData from '../data/examples';
 
 export default class Header extends Component {
-    constructor() {
-        super();
-        this.examples = [
-            {
-                title: "粒子运动",
-                name: 'particle'
-            },
-            {
-                title: "波浪运动",
-                name: 'wave'
-            },
-            {
-                title: "雪花飘落",
-                name: 'snow'
-            }
-        ];
-    }
-
-    setActive($parent, $this) {
-        $parent.find('.active').removeClass('active');
-        $this.addClass('active');
+    constructor(props) {
+        super(props);
     }
 
     changeActive($active) {
-        this.setActive( this.slideNavElems.$nav, $active );
+        this.slideNavElems.$nav.find('>.active').removeClass('active');
+        $active.addClass('active');
         this.setSlideblock( $active );
     }
 
@@ -87,7 +69,7 @@ export default class Header extends Component {
                     菜单
                 </div>
                 <div className="logo">
-                    <a href="#/">Particleground.js</a>
+                    <Link to="/">Particleground.js</Link>
                 </div>
                 <nav className="nav pr">
                     <IndexLink to="/" activeClassName="active">
@@ -112,7 +94,7 @@ export default class Header extends Component {
                     <aside className="example-menu">
                         <div className="divider"></div>
                         {
-                            this.examples.map(instance => {
+                            examplesData.intro.concat(examplesData.instances).map(instance => {
                                 return <Link to={`examples/${instance.name}`}
                                              activeClassName="active" key={instance.name}>
                                     {instance.title}

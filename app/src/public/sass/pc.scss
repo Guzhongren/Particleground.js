@@ -350,6 +350,7 @@ $page-left-right: rem(120);
         position: absolute;
         z-index: 2;
         top: 32%;
+        left: 0;
         > .title {
             font-size: 80px;
             font-weight: 100;
@@ -419,8 +420,8 @@ $page-left-right: rem(120);
 
 // example pages
 #page-example {
-    >.com-body{
-        > .menu {
+    .com-body{
+        .menu {
             width: rem(240);
             &.fixed{
                 padding: rem(20) 0;
@@ -468,7 +469,7 @@ $page-left-right: rem(120);
                 color: $root-color;
             }
         }
-        > .main {
+        .main {
             padding-left: rem(300);
             > .main-content {
                 .instance{
@@ -511,7 +512,7 @@ $page-left-right: rem(120);
 }
 
 #page-download{
-    >.com-body{
+    .com-body{
         h3{
             font-size: rem(24);
             font-weight: 100;
@@ -520,7 +521,7 @@ $page-left-right: rem(120);
 }
 
 #page-changelog {
-    >.com-body{
+    .com-body{
         text-align: center;
         .inner {
             display: inline-block;

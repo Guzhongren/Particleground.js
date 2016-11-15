@@ -7,7 +7,7 @@ export default class Layout extends Component {
         return (
             <div>
                 <Header/>
-                <div className="body">
+                <div className="com-body">
                     {
                         this.props.children
                     }
