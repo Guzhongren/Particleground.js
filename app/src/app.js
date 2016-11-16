@@ -6,9 +6,6 @@ import './public/sass/build.scss';
 const rootRoutes = {
     path: '/',
     indexRoute: {
-        onEnter(nextState, replace, callback) {
-            callback();
-        },
         getComponent(ns, cb) {
             require.ensure([], () => {
                 cb(null, require('./routes/index'));
@@ -31,21 +28,14 @@ const rootRoutes = {
             {
                 path: 'examples/:instance',
                 getComponent(ns, cb) {
-                    console.log(':inst', ns)
+                    let instance = ns.params.instance;
                     require.ensure([], () => {
-                        cb(null, require('./routes/examples'));
+                        cb(null, require(`./components/examples/${instance}`));
+                        /*cb(null, [
+                            require('./components/menu'),
+                            require(`./components/examples/${instance}`)
+                        ]);*/
                     }, 'examples');
-                },
-                getChildRoutes(partialNextState, cb) {
-                    console.log('000:', partialNextState);
-                    let instance = partialNextState.params.instance;
-                    console.log('instance', instance)
-                    require.ensure([], () => {
-                        cb(null, [
-                            //require(`./components/examples/${instance}`)
-                            require(`./components/examples/intro`)
-                        ]);
-                    }, 'intro');
                 }
             },
             {

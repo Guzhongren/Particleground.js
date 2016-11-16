@@ -1,3 +1,7 @@
+/**
+ * 这是一个很可惜没有使用的文件，
+ * 由于 react-router 不支持等因素
+ */
 import React, { Component } from 'react';
 import { Link, IndexLink, Router } from 'react-router';
 import $ from 'jquery';
