@@ -26,7 +26,12 @@ const rootRoutes = {
                 }
             },
             {
-                path: 'examples/:instance',
+                path: 'examples(/:instance)',
+                onEnter(ns) {
+                    if(!ns.params.instance){
+                        location.hash = '#/examples/intro';
+                    }
+                },
                 getComponent(ns, cb) {
                     let instance = ns.params.instance;
                     require.ensure([], () => {

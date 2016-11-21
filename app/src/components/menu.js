@@ -17,10 +17,6 @@ export default class Menu extends Component {
         $('body').attr('id', 'page-example');
     }
 
-    componentDidMount() {
-
-    }
-
     componentWillUnmount() {
         $('body').removeAttr('id');
     }

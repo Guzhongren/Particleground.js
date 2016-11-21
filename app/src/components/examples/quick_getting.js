@@ -3,7 +3,8 @@ import Menu from '../menu';
 import pjs from 'pjs';
 import Comment from '../comment';
 import $ from 'jquery';
-import { loadjs, loadcss } from '../../common/load';
+import bind from '../../common/bind';
+import { prettyPrint } from '../../common/prettyPrint';
 
 export default class Intro extends Component {
     static contextTypes = {
@@ -15,15 +16,17 @@ export default class Intro extends Component {
     }
 
     componentDidMount() {
-        loadcss( '//cdn.bootcss.com/prettify/r298/prettify.min.css' );
-        loadjs( '//cdn.bootcss.com/prettify/r298/prettify.min.js', () => {
-            prettyPrint();
+        prettyPrint();
+
+        bind( 0, function( demoElem ){
+            return new Particleground.particle( demoElem, {
+                distance: 60,
+                num: 30
+            });
         });
     }
 
     render() {
-        this.pageID = this.context.router.params.instance;
-
         return (
             <div className="cf">
                 <Menu></Menu>
@@ -342,7 +345,6 @@ export default class Intro extends Component {
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <Comment></Comment>
