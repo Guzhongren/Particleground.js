@@ -3,7 +3,7 @@ module.exports = [
         version: '1.1.0',
         date: '2016.10.31',
         feature: [
-            '增加最大最小速度(maxSpeed, minSpeed)，删除原有只是表示最大速度(speed)的API'
+            '增加最大最小速度(maxSpeed, minSpeed)，删除原本只是表示最大速度(speed)的API'
         ],
         bugs: [
             '修改最大最小半径API名称',

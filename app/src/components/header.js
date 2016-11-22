@@ -64,45 +64,49 @@ export default class Header extends Component {
     render() {
         return (
             <header className="com-header pr">
-                <div className="mobile-menu">
-                    <i className="icon icon-menu"></i>
-                    菜单
-                </div>
-                <div className="logo">
-                    <Link to="/">Particleground.js</Link>
-                </div>
-                <nav className="nav pr">
-                    <IndexLink to="/" activeClassName="active">
-                        首页
-                    </IndexLink>
-                    <Link to="examples/particle" activeClassName="active">
-                        实例及API
-                    </Link>
-                    <a href="https://github.com/Barrior/Particleground.js" target="_blank">
-                        Github
-                    </a>
-                    <a href="http://shang.qq.com/wpa/qunwpa?idkey=f548e3f94e0040a2ac5adfe4fec6915ef67c8c1b6ba5784ff6d5049c6135a759"
-                       title="172839150" target="_blank">
-                        QQ群
-                    </a>
-                    <Link to="changelog" activeClassName="active"
-                          title="路漫漫其修远兮吾将上下而求索">
-                        更新日志
-                    </Link>
-                    <div className="slideblock pa hidden"></div>
+                <div className="com-width">
+                    <div className="mobile-menu">
+                        <i className="icon icon-menu"></i>
+                        菜单
+                    </div>
+                    <div className="logo">
+                        <Link to="/">Particleground.js</Link>
+                    </div>
+                    <nav className="nav pr">
+                        <IndexLink to="/" activeClassName="active">
+                            首页
+                        </IndexLink>
+                        <Link to="examples/particle" activeClassName="active">
+                            实例及API
+                        </Link>
+                        <a href="https://github.com/Barrior/Particleground.js" target="_blank">
+                            Github
+                        </a>
+                        <a href="http://shang.qq.com/wpa/qunwpa?idkey=f548e3f94e0040a2ac5adfe4fec6915ef67c8c1b6ba5784ff6d5049c6135a759"
+                           title="172839150" target="_blank">
+                            QQ群
+                        </a>
+                        <Link to="changelog" activeClassName="active"
+                              title="路漫漫其修远兮吾将上下而求索">
+                            更新日志
+                        </Link>
+                        <div className="slideblock pa hidden"></div>
 
-                    <aside className="example-menu">
-                        <div className="divider"></div>
-                        {
-                            examplesData.intro.concat(examplesData.instances).map(instance => {
-                                return <Link to={`examples/${instance.name}`}
-                                             activeClassName="active" key={instance.name}>
-                                    {instance.title}
-                                </Link>
-                            })
-                        }
-                    </aside>
-                </nav>
+                        <aside className="example-menu">
+                            <div className="divider"></div>
+                            {
+                                examplesData.intro.concat(examplesData.instances)
+                                    .map(instance => {
+                                        return <Link to={`examples/${instance.name}`}
+                                                     activeClassName="active"
+                                                     key={instance.name}>
+                                            {instance.title}
+                                        </Link>
+                                    })
+                            }
+                        </aside>
+                    </nav>
+                </div>
             </header>
         )
     }
